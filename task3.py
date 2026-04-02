@@ -1,0 +1,17 @@
+import pandas as pd
+df = pd.read_csv("cleaned_data.csv")
+top_post = df[df["score"] == df["score"].max()]
+print("Top Post:")
+print(top_post)
+avg_score = df["score"].mean()
+print("Average score:", avg_score)
+top_authors = df["Author"].value_counts().head()
+print("Top Authors:")
+print(top_authors)
+top3 = df.sort_values(by="score",ascending=False).head(3)
+print("Top  post : ")
+print(top3)
+top3 = df.sort_values(by="score",ascending=False).head(3)
+print("Top 3 posts: ")
+print(top3)
+top3.to_csv("top3_posts.csv",index=False)
